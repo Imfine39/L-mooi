@@ -1,0 +1,60 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Edit",
+      "Write",
+      "Read",
+      "Glob",
+      "Grep",
+      "WebSearch",
+      "WebFetch",
+      "mcp__serena__*",
+      "mcp__context7__*",
+      "Skill(test-skill)",
+      "Skill(nick-q)",
+      "Skill(nick-q:*)"
+    ],
+    "deny": [
+    
+      "Bash(sudo:*)",
+      "Bash(git push --force:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "serena"
+  ],
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm run lint --silent -- --max-warnings 0 2>/dev/null || echo '[Lint] Warnings detected'"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/post-commit-task.cjs 2>/dev/null || true"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/skills/nick-q/scripts/state.cjs query --all 2>/dev/null || echo \"[SSD State] Not initialized\""
+          }
+        ]
+      }
+    ]
+  }
+}
