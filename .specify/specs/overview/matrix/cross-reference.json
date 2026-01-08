@@ -1,0 +1,216 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-08",
+  "screens": {
+    "SCR-001": {
+      "name": "ログイン画面",
+      "apis": ["API-AUTH-LOGIN-001"],
+      "masters": ["M-USER"]
+    },
+    "SCR-002": {
+      "name": "ダッシュボード",
+      "apis": ["API-DASHBOARD-001", "API-SUBSIDY-LIST-001", "API-AUTH-LOGOUT-001"],
+      "masters": ["M-SUBSIDY", "M-DOCUMENT", "M-SECTION-CONTENT", "M-USER"]
+    },
+    "SCR-003": {
+      "name": "補助金一覧画面",
+      "apis": ["API-SUBSIDY-LIST-001", "API-SUBSIDY-CREATE-001"],
+      "masters": ["M-SUBSIDY"]
+    },
+    "SCR-004": {
+      "name": "補助金詳細画面",
+      "apis": ["API-SUBSIDY-GET-001", "API-DOCUMENT-CREATE-001"],
+      "masters": ["M-SUBSIDY", "M-DOCUMENT"]
+    },
+    "SCR-005": {
+      "name": "書類詳細画面",
+      "apis": ["API-DOCUMENT-GET-001", "API-EXPORT-WORD-001", "API-EXPORT-PDF-001"],
+      "masters": ["M-DOCUMENT", "M-SECTION"]
+    },
+    "SCR-006": {
+      "name": "セクション編集画面",
+      "apis": [
+        "API-SECTION-GET-001",
+        "API-SECTION-UPDATE-001",
+        "API-SECTION-HISTORY-001",
+        "API-SECTION-RESTORE-001",
+        "API-FILE-LINK-001",
+        "API-FILE-UNLINK-001"
+      ],
+      "masters": ["M-SECTION", "M-SECTION-CONTENT", "M-SECTION-CONTENT-HISTORY", "M-REFERENCE-FILE", "M-FILE-SECTION-LINK"]
+    },
+    "SCR-007": {
+      "name": "収益計画画面",
+      "apis": ["API-SECTION-GET-001", "API-SECTION-UPDATE-001", "API-SECTION-HISTORY-001", "API-SECTION-RESTORE-001", "API-REVENUE-CALCULATE-001"],
+      "masters": ["M-SECTION", "M-SECTION-CONTENT", "M-SECTION-CONTENT-HISTORY"]
+    },
+    "SCR-008": {
+      "name": "スケジュール画面",
+      "apis": ["API-SECTION-GET-001", "API-SECTION-UPDATE-001", "API-SECTION-HISTORY-001", "API-SECTION-RESTORE-001"],
+      "masters": ["M-SECTION", "M-SECTION-CONTENT", "M-SECTION-CONTENT-HISTORY"]
+    },
+    "SCR-009": {
+      "name": "参考ファイル管理画面",
+      "apis": ["API-FILE-LIST-001", "API-FILE-UPLOAD-001", "API-FILE-PREVIEW-001", "API-FILE-DELETE-001"],
+      "masters": ["M-REFERENCE-FILE"]
+    },
+    "SCR-010": {
+      "name": "テンプレート管理画面",
+      "apis": ["API-TEMPLATE-LIST-001", "API-TEMPLATE-GET-001", "API-TEMPLATE-UPDATE-001", "API-TEMPLATE-CREATE-001"],
+      "masters": ["M-SUBSIDY-TEMPLATE"]
+    },
+    "SCR-011": {
+      "name": "ユーザー管理画面",
+      "apis": ["API-USER-LIST-001", "API-USER-INVITE-001", "API-USER-UPDATE-001", "API-USER-DELETE-001"],
+      "masters": ["M-USER"]
+    }
+  },
+  "features": {},
+  "apis": {
+    "API-DASHBOARD-001": {
+      "name": "ダッシュボードデータ取得",
+      "masters": ["M-SUBSIDY", "M-DOCUMENT", "M-SECTION-CONTENT"]
+    },
+    "API-AUTH-LOGIN-001": {
+      "name": "ログイン",
+      "masters": ["M-USER"]
+    },
+    "API-AUTH-LOGOUT-001": {
+      "name": "ログアウト",
+      "masters": ["M-USER"]
+    },
+    "API-SUBSIDY-LIST-001": {
+      "name": "補助金一覧取得",
+      "masters": ["M-SUBSIDY"]
+    },
+    "API-SUBSIDY-GET-001": {
+      "name": "補助金詳細取得",
+      "masters": ["M-SUBSIDY", "M-DOCUMENT"]
+    },
+    "API-SUBSIDY-CREATE-001": {
+      "name": "補助金作成",
+      "masters": ["M-SUBSIDY", "M-SUBSIDY-TEMPLATE"]
+    },
+    "API-DOCUMENT-GET-001": {
+      "name": "書類詳細取得",
+      "masters": ["M-DOCUMENT", "M-SECTION"]
+    },
+    "API-DOCUMENT-CREATE-001": {
+      "name": "書類作成",
+      "masters": ["M-DOCUMENT"]
+    },
+    "API-SECTION-GET-001": {
+      "name": "セクション詳細取得",
+      "masters": ["M-SECTION", "M-SECTION-CONTENT", "M-REFERENCE-FILE"]
+    },
+    "API-SECTION-UPDATE-001": {
+      "name": "セクション内容更新",
+      "masters": ["M-SECTION-CONTENT", "M-SECTION-CONTENT-HISTORY"]
+    },
+    "API-SECTION-HISTORY-001": {
+      "name": "セクション履歴一覧取得",
+      "masters": ["M-SECTION-CONTENT-HISTORY"]
+    },
+    "API-SECTION-RESTORE-001": {
+      "name": "セクション履歴復元",
+      "masters": ["M-SECTION-CONTENT", "M-SECTION-CONTENT-HISTORY"]
+    },
+    "API-FILE-UPLOAD-001": {
+      "name": "ファイルアップロード",
+      "masters": ["M-REFERENCE-FILE"]
+    },
+    "API-FILE-LIST-001": {
+      "name": "ファイル一覧取得",
+      "masters": ["M-REFERENCE-FILE"]
+    },
+    "API-FILE-PREVIEW-001": {
+      "name": "ファイルプレビュー取得",
+      "masters": ["M-REFERENCE-FILE"]
+    },
+    "API-FILE-LINK-001": {
+      "name": "ファイル紐づけ",
+      "masters": ["M-FILE-SECTION-LINK"]
+    },
+    "API-FILE-UNLINK-001": {
+      "name": "ファイル紐づけ解除",
+      "masters": ["M-FILE-SECTION-LINK"]
+    },
+    "API-FILE-DELETE-001": {
+      "name": "ファイル削除",
+      "masters": ["M-REFERENCE-FILE", "M-FILE-SECTION-LINK"]
+    },
+    "API-REVENUE-CALCULATE-001": {
+      "name": "収益計画計算",
+      "masters": []
+    },
+    "API-EXPORT-WORD-001": {
+      "name": "Word エクスポート",
+      "masters": ["M-DOCUMENT", "M-SECTION-CONTENT"]
+    },
+    "API-EXPORT-PDF-001": {
+      "name": "PDF エクスポート",
+      "masters": ["M-DOCUMENT", "M-SECTION-CONTENT"]
+    },
+    "API-TEMPLATE-LIST-001": {
+      "name": "テンプレート一覧取得",
+      "masters": ["M-SUBSIDY-TEMPLATE"]
+    },
+    "API-TEMPLATE-GET-001": {
+      "name": "テンプレート詳細取得",
+      "masters": ["M-SUBSIDY-TEMPLATE"]
+    },
+    "API-TEMPLATE-UPDATE-001": {
+      "name": "テンプレート更新",
+      "masters": ["M-SUBSIDY-TEMPLATE"]
+    },
+    "API-TEMPLATE-CREATE-001": {
+      "name": "テンプレート作成",
+      "masters": ["M-SUBSIDY-TEMPLATE"]
+    },
+    "API-USER-LIST-001": {
+      "name": "ユーザー一覧取得",
+      "masters": ["M-USER"]
+    },
+    "API-USER-INVITE-001": {
+      "name": "ユーザー招待",
+      "masters": ["M-USER"]
+    },
+    "API-USER-UPDATE-001": {
+      "name": "ユーザー更新",
+      "masters": ["M-USER"]
+    },
+    "API-USER-DELETE-001": {
+      "name": "ユーザー削除",
+      "masters": ["M-USER"]
+    }
+  },
+  "masters": {
+    "M-USER": {
+      "name": "ユーザー"
+    },
+    "M-SUBSIDY": {
+      "name": "補助金"
+    },
+    "M-SUBSIDY-TEMPLATE": {
+      "name": "補助金テンプレート"
+    },
+    "M-DOCUMENT": {
+      "name": "書類"
+    },
+    "M-SECTION": {
+      "name": "セクション"
+    },
+    "M-SECTION-CONTENT": {
+      "name": "セクション内容"
+    },
+    "M-SECTION-CONTENT-HISTORY": {
+      "name": "セクション内容履歴"
+    },
+    "M-REFERENCE-FILE": {
+      "name": "参考ファイル"
+    },
+    "M-FILE-SECTION-LINK": {
+      "name": "ファイル-セクション紐づけ"
+    }
+  }
+}

@@ -2,6 +2,36 @@
   "version": "1.0.0",
   "entries": [
     {
+      "id": "CL-20260108-033243-3KP0",
+      "timestamp": "2026-01-08T03:32:43.837Z",
+      "type": "create",
+      "spec": ".specify/specs/overview/domain/spec.md",
+      "feature": null,
+      "description": "Domain Spec 作成: Domain Spec",
+      "branch": "main",
+      "author": "Imfine39"
+    },
+    {
+      "id": "CL-20260108-032943-3VD2",
+      "timestamp": "2026-01-08T03:29:43.450Z",
+      "type": "create",
+      "spec": ".specify/specs/overview/screen/spec.md",
+      "feature": null,
+      "description": "Screen Spec 作成: Screen Spec",
+      "branch": "main",
+      "author": "Imfine39"
+    },
+    {
+      "id": "CL-20260108-032736-JPI3",
+      "timestamp": "2026-01-08T03:27:36.794Z",
+      "type": "create",
+      "spec": ".specify/specs/overview/vision/spec.md",
+      "feature": null,
+      "description": "Vision Spec 作成: LSystem",
+      "branch": "main",
+      "author": "Imfine39"
+    },
+    {
       "id": "CL-20251225-101256-RIUS",
       "timestamp": "2025-12-25T10:12:56.479Z",
       "type": "update",
