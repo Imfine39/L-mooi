@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSystem - 補助金一覧</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <a href="dashboard.html" class="logo">LSystem</a>
+      <nav class="nav">
+        <a href="subsidy-list.html" class="active">補助金一覧</a>
+        <a href="files.html">参考ファイル</a>
+        <a href="templates.html">テンプレート</a>
+        <a href="users.html">ユーザー管理</a>
+      </nav>
+    </div>
+    <div class="user-menu">
+      山田太郎 | <a href="index.html">ログアウト</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-header">
+      <h1 class="page-title">補助金一覧</h1>
+      <button class="btn btn-primary">+ 新規作成</button>
+    </div>
+
+    <div class="card">
+      <div style="margin-bottom: 16px;">
+        <input type="text" class="input" placeholder="検索..." style="max-width: 300px;">
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>補助金名</th>
+            <th>申請期限</th>
+            <th>進捗</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onclick="location.href='subsidy-detail.html'" style="cursor: pointer;">
+            <td>新規事業創出補助金</td>
+            <td>2026-03-31</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar" style="width: 100px;">
+                  <div class="progress-fill" style="width: 60%;"></div>
+                </div>
+                <span class="progress-label">60%</span>
+              </div>
+            </td>
+            <td><a href="subsidy-detail.html" class="btn btn-secondary">編集</a></td>
+          </tr>
+          <tr onclick="location.href='subsidy-detail.html'" style="cursor: pointer;">
+            <td>ものづくり補助金</td>
+            <td>2026-06-30</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar" style="width: 100px;">
+                  <div class="progress-fill" style="width: 20%;"></div>
+                </div>
+                <span class="progress-label">20%</span>
+              </div>
+            </td>
+            <td><a href="subsidy-detail.html" class="btn btn-secondary">編集</a></td>
+          </tr>
+          <tr onclick="location.href='subsidy-detail.html'" style="cursor: pointer;">
+            <td>IT導入補助金</td>
+            <td>2026-09-30</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar" style="width: 100px;">
+                  <div class="progress-fill" style="width: 0%;"></div>
+                </div>
+                <span class="progress-label">0%</span>
+              </div>
+            </td>
+            <td><a href="subsidy-detail.html" class="btn btn-secondary">編集</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

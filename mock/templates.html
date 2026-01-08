@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSystem - テンプレート管理</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <a href="dashboard.html" class="logo">LSystem</a>
+      <nav class="nav">
+        <a href="subsidy-list.html">補助金一覧</a>
+        <a href="files.html">参考ファイル</a>
+        <a href="templates.html" class="active">テンプレート</a>
+        <a href="users.html">ユーザー管理</a>
+      </nav>
+    </div>
+    <div class="user-menu">
+      山田太郎 | <a href="index.html">ログアウト</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-header">
+      <h1 class="page-title">テンプレート管理</h1>
+      <button class="btn btn-primary">+ 新規テンプレート</button>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 250px 1fr; gap: 24px;">
+      <div class="card">
+        <div class="card-title">補助金テンプレート</div>
+        <div class="list-item" style="background: #E3F2FD;">
+          <span>新規事業創出補助金</span>
+        </div>
+        <div class="list-item">
+          <span>ものづくり補助金</span>
+        </div>
+        <div class="list-item">
+          <span>IT導入補助金</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">新規事業創出補助金</div>
+
+        <div style="margin-bottom: 16px;">
+          <div style="font-weight: bold; margin-bottom: 8px;">書類構造:</div>
+
+          <div style="margin-left: 16px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span>📁</span>
+              <span style="font-weight: 500;">事業計画書</span>
+            </div>
+            <div style="margin-left: 24px;">
+              <div style="padding: 4px 0; color: var(--secondary);">├ SWOT分析</div>
+              <div style="padding: 4px 0; color: var(--secondary);">├ 事業背景</div>
+              <div style="padding: 4px 0; color: var(--secondary);">├ 取り組み内容</div>
+              <div style="padding: 4px 0; color: var(--primary); cursor: pointer;">└ + セクション追加</div>
+            </div>
+          </div>
+
+          <div style="margin-left: 16px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span>📁</span>
+              <span style="font-weight: 500;">収支計画書</span>
+            </div>
+            <div style="margin-left: 24px;">
+              <div style="padding: 4px 0; color: var(--secondary);">└ 収益計画</div>
+            </div>
+          </div>
+
+          <div style="margin-left: 16px; margin-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span>📁</span>
+              <span style="font-weight: 500;">スケジュール表</span>
+            </div>
+            <div style="margin-left: 24px;">
+              <div style="padding: 4px 0; color: var(--secondary);">└ WBS/ガントチャート</div>
+            </div>
+          </div>
+
+          <div style="margin-left: 16px; color: var(--primary); cursor: pointer;">
+            + 書類追加
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

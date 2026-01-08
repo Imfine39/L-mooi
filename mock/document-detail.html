@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSystem - 書類詳細</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <a href="dashboard.html" class="logo">LSystem</a>
+      <nav class="nav">
+        <a href="subsidy-list.html" class="active">補助金一覧</a>
+        <a href="files.html">参考ファイル</a>
+        <a href="templates.html">テンプレート</a>
+        <a href="users.html">ユーザー管理</a>
+      </nav>
+    </div>
+    <div class="user-menu">
+      山田太郎 | <a href="index.html">ログアウト</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <a href="subsidy-detail.html" class="btn btn-back">← 戻る</a>
+
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">事業計画書</h1>
+        <div class="progress" style="margin-top: 8px; width: 300px;">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 60%;"></div>
+          </div>
+          <span class="progress-label">60%</span>
+        </div>
+      </div>
+      <button class="btn btn-primary">エクスポート</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">セクション一覧</div>
+
+      <a href="section-edit.html" class="list-item" style="text-decoration: none; color: inherit;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--success);">✓</span>
+          <div class="list-item-title">SWOT分析</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <span class="badge badge-success">完了</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <a href="section-edit.html" class="list-item" style="text-decoration: none; color: inherit;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--success);">✓</span>
+          <div class="list-item-title">今回の事業実施の背景</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <span class="badge badge-success">完了</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <a href="section-edit.html" class="list-item" style="text-decoration: none; color: inherit;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--secondary);">○</span>
+          <div class="list-item-title">具体的な取り組み内容</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <span class="badge badge-warning">未完了</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <a href="revenue-plan.html" class="list-item" style="text-decoration: none; color: inherit;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--secondary);">○</span>
+          <div class="list-item-title">収益計画</div>
+          <span class="badge" style="background: #E3F2FD; color: var(--primary);">特殊</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <span class="badge badge-warning">未完了</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <a href="schedule.html" class="list-item" style="text-decoration: none; color: inherit;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: var(--secondary);">○</span>
+          <div class="list-item-title">スケジュール</div>
+          <span class="badge" style="background: #E3F2FD; color: var(--primary);">特殊</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <span class="badge badge-warning">未完了</span>
+          <span>→</span>
+        </div>
+      </a>
+    </div>
+  </main>
+</body>
+</html>

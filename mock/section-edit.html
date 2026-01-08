@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSystem - セクション編集</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <a href="dashboard.html" class="logo">LSystem</a>
+      <nav class="nav">
+        <a href="subsidy-list.html" class="active">補助金一覧</a>
+        <a href="files.html">参考ファイル</a>
+        <a href="templates.html">テンプレート</a>
+        <a href="users.html">ユーザー管理</a>
+      </nav>
+    </div>
+    <div class="user-menu">
+      山田太郎 | <a href="index.html">ログアウト</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <a href="document-detail.html" class="btn btn-back">← 戻る</a>
+      <div style="display: flex; gap: 8px;">
+        <button class="btn btn-secondary">履歴</button>
+        <button class="btn btn-primary">保存</button>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 16px;">
+      <h1 class="page-title">XXX会社：新規事業創出補助金：SWOT分析</h1>
+      <div class="list-item-meta">タグ: 新規事業, 外部環境</div>
+    </div>
+
+    <div class="description-box">
+      新規事業の実施に当たり、まずは既存事業を取り巻く環境を理解し、自社の強みを活かして機会を最大限捉えることが重要です。
+      SWOT分析により、強み・弱み・機会・脅威を整理してください。
+    </div>
+
+    <div class="layout-sidebar">
+      <div>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-title">強み (Strengths) <span style="font-weight: normal; color: var(--secondary);">(300文字)</span></div>
+            <textarea class="textarea" placeholder="自社の強みを入力してください...">・20年以上の製造業経験
+・熟練した技術者が多数在籍
+・既存顧客との強固な信頼関係</textarea>
+          </div>
+          <div class="card">
+            <div class="card-title">弱み (Weaknesses) <span style="font-weight: normal; color: var(--secondary);">(300文字)</span></div>
+            <textarea class="textarea" placeholder="自社の弱みを入力してください...">・デジタル化への対応遅れ
+・若手人材の採用が困難
+・マーケティング力の不足</textarea>
+          </div>
+          <div class="card">
+            <div class="card-title">機会 (Opportunities) <span style="font-weight: normal; color: var(--secondary);">(300文字)</span></div>
+            <textarea class="textarea" placeholder="外部環境の機会を入力してください...">・DX需要の高まり
+・地方創生支援策の充実
+・サプライチェーン見直しの動き</textarea>
+          </div>
+          <div class="card">
+            <div class="card-title">脅威 (Threats) <span style="font-weight: normal; color: var(--secondary);">(300文字)</span></div>
+            <textarea class="textarea" placeholder="外部環境の脅威を入力してください...">・原材料価格の高騰
+・海外メーカーとの競争激化
+・人手不足の深刻化</textarea>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sidebar">
+          <div class="sidebar-title">参考ファイル</div>
+          <div class="file-item">
+            <span>会社概要.pdf</span>
+            <span class="remove">-</span>
+          </div>
+          <div class="file-item">
+            <span>事業計画書.docx</span>
+            <span class="remove">-</span>
+          </div>
+          <a href="#" style="color: var(--primary); text-decoration: none; display: block; margin-top: 8px;">+ ファイル追加</a>
+          <div class="list-item-meta" style="margin-top: 8px;">(AIが自動判別 / 手動紐づけ可)</div>
+        </div>
+
+        <div class="sidebar" style="margin-top: 16px;">
+          <div class="sidebar-title">メモ</div>
+          <textarea class="textarea" placeholder="メモを入力...">前回のミーティングで話した内容を反映すること</textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top: 16px;">
+      <div class="card-title">追加指示</div>
+      <div style="display: flex; gap: 8px;">
+        <input type="text" class="input" placeholder="AIへの追加指示を入力...">
+        <button class="btn btn-primary">生成指示</button>
+      </div>
+      <div class="list-item-meta" style="margin-top: 8px;">※Phase 2で有効化予定</div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSystem - ユーザー管理</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <a href="dashboard.html" class="logo">LSystem</a>
+      <nav class="nav">
+        <a href="subsidy-list.html">補助金一覧</a>
+        <a href="files.html">参考ファイル</a>
+        <a href="templates.html">テンプレート</a>
+        <a href="users.html" class="active">ユーザー管理</a>
+      </nav>
+    </div>
+    <div class="user-menu">
+      山田太郎 | <a href="index.html">ログアウト</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-header">
+      <h1 class="page-title">ユーザー管理</h1>
+      <button class="btn btn-primary">+ ユーザー招待</button>
+    </div>
+
+    <div class="card">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ユーザー名</th>
+            <th>メールアドレス</th>
+            <th>権限</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>山田太郎</td>
+            <td>yamada@example.com</td>
+            <td><span class="badge badge-success">管理者</span></td>
+            <td>
+              <button class="btn btn-secondary" style="padding: 4px 8px;">編集</button>
+              <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">削除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>鈴木花子</td>
+            <td>suzuki@example.com</td>
+            <td><span class="badge badge-warning">作成者</span></td>
+            <td>
+              <button class="btn btn-secondary" style="padding: 4px 8px;">編集</button>
+              <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">削除</button>
+            </td>
+          </tr>
+          <tr>
+            <td>田中一郎</td>
+            <td>tanaka@example.com</td>
+            <td><span class="badge badge-warning">作成者</span></td>
+            <td>
+              <button class="btn btn-secondary" style="padding: 4px 8px;">編集</button>
+              <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">削除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
