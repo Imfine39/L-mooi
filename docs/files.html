@@ -11,10 +11,10 @@
     <div class="header-left">
       <a href="dashboard.html" class="logo">LSystem</a>
       <nav class="nav">
-        <a href="subsidy-list.html">補助金一覧</a>
-        <a href="files.html" class="active">参考ファイル</a>
+        <a href="clients.html">クライアント</a>
+        <a href="files.html" class="active">ファイル</a>
         <a href="templates.html">テンプレート</a>
-        <a href="users.html">ユーザー管理</a>
+        <a href="users.html">ユーザー</a>
       </nav>
     </div>
     <div class="user-menu">
@@ -23,65 +23,110 @@
   </header>
 
   <main class="main">
+    <a href="client-detail.html" class="btn btn-back">← 戻る</a>
+
     <div class="page-header">
-      <h1 class="page-title">参考ファイル管理</h1>
+      <div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 20px;">🏢</span>
+          <h1 class="page-title">株式会社A - 参考ファイル管理</h1>
+        </div>
+      </div>
       <button class="btn btn-primary">アップロード</button>
     </div>
 
     <div class="card">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>ファイル名</th>
-            <th>種別</th>
-            <th>サイズ</th>
-            <th>更新日</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>会社概要.pdf</td>
-            <td>基本情報</td>
-            <td>2.3MB</td>
-            <td>2026-01-05</td>
-            <td>
-              <button class="btn btn-secondary" style="padding: 4px 8px;">プレビュー</button>
-              <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">削除</button>
-            </td>
-          </tr>
-          <tr>
-            <td>事業計画書.docx</td>
-            <td>計画</td>
-            <td>1.5MB</td>
-            <td>2026-01-03</td>
-            <td>
-              <button class="btn btn-secondary" style="padding: 4px 8px;">プレビュー</button>
-              <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">削除</button>
-            </td>
-          </tr>
-          <tr>
-            <td>財務諸表.xlsx</td>
-            <td>財務</td>
-            <td>0.8MB</td>
-            <td>2026-01-01</td>
-            <td>
-              <button class="btn btn-secondary" style="padding: 4px 8px;">プレビュー</button>
-              <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">削除</button>
-            </td>
-          </tr>
-          <tr>
-            <td>製品カタログ.pdf</td>
-            <td>製品</td>
-            <td>5.2MB</td>
-            <td>2025-12-20</td>
-            <td>
-              <button class="btn btn-secondary" style="padding: 4px 8px;">プレビュー</button>
-              <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">削除</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="filter-tabs">
+        <span class="filter-tab active">すべて</span>
+        <span class="filter-tab">既存事業</span>
+        <span class="filter-tab">補助事業</span>
+      </div>
+
+      <!-- 既存事業ファイル -->
+      <div class="file-type-group">
+        <div class="file-type-header">既存事業ファイル</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ファイル名</th>
+              <th>カテゴリ</th>
+              <th>サイズ</th>
+              <th>更新日</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>会社概要.pdf</td>
+              <td>基本情報</td>
+              <td>2.3MB</td>
+              <td>2026-01-05</td>
+              <td>
+                <button class="btn btn-secondary" style="padding: 4px 8px;">👁</button>
+                <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">🗑</button>
+              </td>
+            </tr>
+            <tr>
+              <td>財務諸表.xlsx</td>
+              <td>財務</td>
+              <td>0.8MB</td>
+              <td>2026-01-01</td>
+              <td>
+                <button class="btn btn-secondary" style="padding: 4px 8px;">👁</button>
+                <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">🗑</button>
+              </td>
+            </tr>
+            <tr>
+              <td>既存製品紹介.pdf</td>
+              <td>製品</td>
+              <td>1.2MB</td>
+              <td>2026-01-02</td>
+              <td>
+                <button class="btn btn-secondary" style="padding: 4px 8px;">👁</button>
+                <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">🗑</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 補助事業ファイル -->
+      <div class="file-type-group">
+        <div class="file-type-header">補助事業ファイル</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ファイル名</th>
+              <th>カテゴリ</th>
+              <th>サイズ</th>
+              <th>更新日</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>新事業計画書.docx</td>
+              <td>計画</td>
+              <td>1.5MB</td>
+              <td>2026-01-03</td>
+              <td>
+                <button class="btn btn-secondary" style="padding: 4px 8px;">👁</button>
+                <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">🗑</button>
+              </td>
+            </tr>
+            <tr>
+              <td>市場調査.pdf</td>
+              <td>調査</td>
+              <td>3.1MB</td>
+              <td>2026-01-04</td>
+              <td>
+                <button class="btn btn-secondary" style="padding: 4px 8px;">👁</button>
+                <button class="btn btn-secondary" style="padding: 4px 8px; color: var(--error);">🗑</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </main>
 </body>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSystem - クライアント管理</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <a href="dashboard.html" class="logo">LSystem</a>
+      <nav class="nav">
+        <a href="clients.html" class="active">クライアント</a>
+        <a href="files.html">ファイル</a>
+        <a href="templates.html">テンプレート</a>
+        <a href="users.html">ユーザー</a>
+      </nav>
+    </div>
+    <div class="user-menu">
+      山田太郎 | <a href="index.html">ログアウト</a>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-header">
+      <h1 class="page-title">クライアント管理</h1>
+      <button class="btn btn-primary" onclick="document.getElementById('modal').style.display='flex'">+ クライアント追加</button>
+    </div>
+
+    <div class="card">
+      <div style="margin-bottom: 16px;">
+        <input type="text" class="input" placeholder="検索..." style="max-width: 300px;">
+      </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会社名</th>
+            <th>代表者</th>
+            <th>申請中</th>
+            <th>更新日</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onclick="location.href='client-detail.html'" style="cursor: pointer;">
+            <td>株式会社A</td>
+            <td>山田太郎</td>
+            <td>3件</td>
+            <td>2026-01-08</td>
+            <td>
+              <button class="btn btn-secondary" style="padding: 4px 8px;" onclick="event.stopPropagation(); document.getElementById('modal').style.display='flex'">編集</button>
+            </td>
+          </tr>
+          <tr onclick="location.href='client-detail.html'" style="cursor: pointer;">
+            <td>株式会社B</td>
+            <td>鈴木花子</td>
+            <td>2件</td>
+            <td>2026-01-07</td>
+            <td>
+              <button class="btn btn-secondary" style="padding: 4px 8px;" onclick="event.stopPropagation(); document.getElementById('modal').style.display='flex'">編集</button>
+            </td>
+          </tr>
+          <tr onclick="location.href='client-detail.html'" style="cursor: pointer;">
+            <td>株式会社C</td>
+            <td>田中一郎</td>
+            <td>1件</td>
+            <td>2026-01-05</td>
+            <td>
+              <button class="btn btn-secondary" style="padding: 4px 8px;" onclick="event.stopPropagation(); document.getElementById('modal').style.display='flex'">編集</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- クライアント追加/編集モーダル -->
+  <div id="modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000;">
+    <div style="background: white; border-radius: 8px; width: 100%; max-width: 500px; max-height: 90vh; overflow-y: auto;">
+      <div style="padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight: bold; font-size: 16px;">クライアント情報</span>
+        <span style="cursor: pointer; font-size: 20px;" onclick="document.getElementById('modal').style.display='none'">×</span>
+      </div>
+      <div style="padding: 24px;">
+        <div class="form-group">
+          <label class="form-label">会社名 *</label>
+          <input type="text" class="input" placeholder="株式会社〇〇">
+        </div>
+        <div class="form-group">
+          <label class="form-label">代表者名</label>
+          <input type="text" class="input" placeholder="山田太郎">
+        </div>
+        <div class="form-group">
+          <label class="form-label">住所</label>
+          <input type="text" class="input" placeholder="東京都...">
+        </div>
+        <div class="form-group">
+          <label class="form-label">電話番号</label>
+          <input type="text" class="input" placeholder="03-XXXX-XXXX">
+        </div>
+        <div class="form-group">
+          <label class="form-label">メール</label>
+          <input type="email" class="input" placeholder="info@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">備考</label>
+          <textarea class="textarea" placeholder="備考を入力..."></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px;">
+          <button class="btn btn-secondary" onclick="document.getElementById('modal').style.display='none'">キャンセル</button>
+          <button class="btn btn-primary" onclick="document.getElementById('modal').style.display='none'">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

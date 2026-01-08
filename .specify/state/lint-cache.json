@@ -2,9 +2,9 @@
   "version": "1.0.0",
   "files": {
     ".specify\\specs\\overview\\vision\\spec.md": "52ca6e5fa15a8953b467359ee3b70717",
-    ".specify/specs/overview/domain/spec.md": "048c534f291fff3cb5918440c038f812",
-    ".specify/specs/overview/screen/spec.md": "220a9ad9421f00867939cd880c01f242",
-    ".specify/specs/overview/vision/spec.md": "339f4adf86f440351f8e817fb74e6937"
+    ".specify/specs/overview/domain/spec.md": "fd15eba225225c90cd61fed728e2a54e",
+    ".specify/specs/overview/screen/spec.md": "7a673fe003aaba7b29e7b558dbf1f3f5",
+    ".specify/specs/overview/vision/spec.md": "fdf72ba4eafc842358b6f102ff89a0be"
   },
-  "lastRun": "2026-01-08T03:43:54.825Z"
+  "lastRun": "2026-01-08T09:24:04.470Z"
 }

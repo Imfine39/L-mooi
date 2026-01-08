@@ -11,10 +11,10 @@
     <div class="header-left">
       <a href="dashboard.html" class="logo">LSystem</a>
       <nav class="nav">
-        <a href="subsidy-list.html">補助金一覧</a>
-        <a href="files.html">参考ファイル</a>
+        <a href="clients.html">クライアント</a>
+        <a href="files.html">ファイル</a>
         <a href="templates.html">テンプレート</a>
-        <a href="users.html">ユーザー管理</a>
+        <a href="users.html">ユーザー</a>
       </nav>
     </div>
     <div class="user-menu">
@@ -32,74 +32,140 @@
         <div class="card-title">最近の編集</div>
         <div class="list-item">
           <div>
-            <div class="list-item-title">SWOT分析</div>
+            <div class="list-item-title">株式会社A: SWOT分析</div>
             <div class="list-item-meta">5分前</div>
           </div>
         </div>
         <div class="list-item">
           <div>
-            <div class="list-item-title">事業背景</div>
+            <div class="list-item-title">株式会社B: 収益計画</div>
             <div class="list-item-meta">1時間前</div>
           </div>
         </div>
         <div class="list-item">
           <div>
-            <div class="list-item-title">収益計画</div>
+            <div class="list-item-title">株式会社C: 事業背景</div>
             <div class="list-item-meta">昨日</div>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <div class="card-title">進捗サマリー</div>
-        <div style="margin-bottom: 16px;">
-          <div style="margin-bottom: 8px;">新規事業創出補助金</div>
-          <div class="progress">
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 60%;"></div>
-            </div>
-            <span class="progress-label">60%</span>
+        <div class="card-title">全体サマリー</div>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <div class="summary-value">5</div>
+            <div class="summary-label">クライアント</div>
           </div>
-        </div>
-        <div>
-          <div style="margin-bottom: 8px;">ものづくり補助金</div>
-          <div class="progress">
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 20%;"></div>
-            </div>
-            <span class="progress-label">20%</span>
+          <div class="summary-item">
+            <div class="summary-value">12</div>
+            <div class="summary-label">申請中</div>
+          </div>
+          <div class="summary-item">
+            <div class="summary-value">24/30</div>
+            <div class="summary-label">完了セクション</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">補助金一覧</div>
-      <div class="grid grid-3">
-        <a href="subsidy-detail.html" class="card" style="text-decoration: none; color: inherit;">
-          <div class="list-item-title">新規事業創出補助金</div>
-          <div class="list-item-meta">申請期限: 2026-03-31</div>
-          <div class="progress" style="margin-top: 8px;">
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 60%;"></div>
-            </div>
-            <span class="progress-label">60%</span>
-          </div>
-        </a>
-        <a href="subsidy-detail.html" class="card" style="text-decoration: none; color: inherit;">
-          <div class="list-item-title">ものづくり補助金</div>
-          <div class="list-item-meta">申請期限: 2026-06-30</div>
-          <div class="progress" style="margin-top: 8px;">
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 20%;"></div>
-            </div>
-            <span class="progress-label">20%</span>
-          </div>
-        </a>
-        <a href="#" class="card" style="text-decoration: none; color: var(--primary); display: flex; align-items: center; justify-content: center;">
-          + 新規作成
-        </a>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <div class="card-title" style="margin-bottom: 0;">クライアント一覧</div>
+        <a href="clients.html" class="btn btn-primary">+ クライアント追加</a>
       </div>
+
+      <!-- クライアント: 株式会社A -->
+      <a href="client-detail.html" class="card client-card" style="text-decoration: none; color: inherit; display: block; margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 18px;">🏢</span>
+              <span class="list-item-title" style="font-size: 16px;">株式会社A</span>
+              <span class="list-item-meta">申請中: 3件</span>
+            </div>
+            <div style="margin-left: 26px;">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 4px;">
+                <span style="color: var(--secondary);">├</span>
+                <span>新規事業創出補助金</span>
+                <span class="list-item-meta">期限: 03/31</span>
+                <div class="progress" style="width: 100px;">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;"></div>
+                  </div>
+                  <span class="progress-label">60%</span>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <span style="color: var(--secondary);">└</span>
+                <span>ものづくり補助金</span>
+                <span class="list-item-meta">期限: 06/30</span>
+                <div class="progress" style="width: 100px;">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%;"></div>
+                  </div>
+                  <span class="progress-label">20%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span style="font-size: 20px; color: var(--secondary);">→</span>
+        </div>
+      </a>
+
+      <!-- クライアント: 株式会社B -->
+      <a href="client-detail.html" class="card client-card" style="text-decoration: none; color: inherit; display: block; margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 18px;">🏢</span>
+              <span class="list-item-title" style="font-size: 16px;">株式会社B</span>
+              <span class="list-item-meta">申請中: 2件</span>
+            </div>
+            <div style="margin-left: 26px;">
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <span style="color: var(--secondary);">└</span>
+                <span>IT導入補助金</span>
+                <span class="list-item-meta">期限: 04/15</span>
+                <div class="progress" style="width: 100px;">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;"></div>
+                  </div>
+                  <span class="progress-label">40%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span style="font-size: 20px; color: var(--secondary);">→</span>
+        </div>
+      </a>
+
+      <!-- クライアント: 株式会社C -->
+      <a href="client-detail.html" class="card client-card" style="text-decoration: none; color: inherit; display: block;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 18px;">🏢</span>
+              <span class="list-item-title" style="font-size: 16px;">株式会社C</span>
+              <span class="list-item-meta">申請中: 1件</span>
+            </div>
+            <div style="margin-left: 26px;">
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <span style="color: var(--secondary);">└</span>
+                <span>事業再構築補助金</span>
+                <span class="list-item-meta">期限: 05/31</span>
+                <div class="progress" style="width: 100px;">
+                  <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%;"></div>
+                  </div>
+                  <span class="progress-label">10%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span style="font-size: 20px; color: var(--secondary);">→</span>
+        </div>
+      </a>
     </div>
   </main>
 </body>

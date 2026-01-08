@@ -9,7 +9,7 @@ Related Vision: S-VISION-001
 Related Screen: S-SCREEN-001
 
 ---
-[USER FEEDBACK: コメント]←これをコピペしてコメントを入れてください。
+
 ## 1. Domain Overview
 
 ### 1.1 Domain Description
@@ -73,6 +73,33 @@ LSystem（補助金申請フォーマット自動作成システム）のドメ�
 
 ---
 
+### M-CLIENT: クライアント（支援先会社）
+
+**Purpose:** 補助金申請を支援するクライアント会社の情報を管理
+
+**Fields:**
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| id | UUID | Yes | Primary identifier |
+| name | string | Yes | 会社名 |
+| representativeName | string | No | 代表者名 |
+| address | string | No | 住所 |
+| phone | string | No | 電話番号 |
+| email | string | No | メールアドレス |
+| notes | string | No | 備考 |
+| createdAt | datetime | Yes | 作成日時 |
+| updatedAt | datetime | Yes | 更新日時 |
+
+**Relationships:**
+- Subsidy: 複数の補助金申請を持つ
+- ReferenceFile: クライアントに紐づく参考ファイル
+
+**Constraints:**
+- name は必須
+
+---
+
 ### M-SUBSIDY: 補助金
 
 **Purpose:** 補助金の基本情報を管理
@@ -82,6 +109,7 @@ LSystem（補助金申請フォーマット自動作成システム）のドメ�
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | id | UUID | Yes | Primary identifier |
+| clientId | UUID | Yes | クライアントへの参照 |
 | name | string | Yes | 補助金名（例: 新規事業創出補助金） |
 | description | string | No | 補助金の説明 |
 | deadline | date | No | 申請期限 |
@@ -90,10 +118,12 @@ LSystem（補助金申請フォーマット自動作成システム）のドメ�
 | updatedAt | datetime | Yes | 更新日時 |
 
 **Relationships:**
+- Client: 所属するクライアント
 - SubsidyTemplate: テンプレートを参照
 - Document: 複数の書類を持つ
 
 **Constraints:**
+- clientId は有効な Client を参照
 - name は必須
 
 ---
@@ -306,20 +336,25 @@ LSystem（補助金申請フォーマット自動作成システム）のドメ�
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | id | UUID | Yes | Primary identifier |
+| clientId | UUID | Yes | クライアントへの参照 |
 | filename | string | Yes | ファイル名 |
 | originalName | string | Yes | 元のファイル名 |
 | mimeType | string | Yes | MIMEタイプ |
 | size | int | Yes | ファイルサイズ（バイト） |
 | path | string | Yes | ストレージパス |
+| fileType | enum | Yes | ファイル種別（existing_business: 既存事業, subsidy_business: 補助事業） |
 | category | string | No | カテゴリ（基本情報, 計画, 財務 等） |
 | uploadedBy | UUID | Yes | アップロードユーザー |
 | createdAt | datetime | Yes | 作成日時 |
 
 **Relationships:**
+- Client: 所属するクライアント
 - User: アップロードユーザー
 - SectionContent: 紐づけられたセクション内容（多対多）
 
 **Constraints:**
+- clientId は有効な Client を参照
+- fileType は existing_business または subsidy_business
 - 許可されたファイル形式のみ（PDF, Word, Excel, 画像）
 - ファイルサイズ上限: 10MB
 
@@ -367,24 +402,203 @@ GET /api/v1/dashboard
       "sectionName": "string",
       "documentName": "string",
       "subsidyName": "string",
+      "clientName": "string",
       "editedAt": "datetime"
     }
   ],
-  "progressSummary": {
-    "totalSubsidies": 5,
-    "completedSections": 24,
-    "totalSections": 30
-  },
-  "subsidies": [
+  "clients": [
     {
       "id": "uuid",
       "name": "string",
-      "deadline": "date",
-      "progress": 60
+      "subsidyCount": 3,
+      "activeSubsidies": [
+        {
+          "id": "uuid",
+          "name": "string",
+          "deadline": "date",
+          "progress": 60
+        }
+      ]
+    }
+  ],
+  "progressSummary": {
+    "totalClients": 5,
+    "totalSubsidies": 12,
+    "completedSections": 24,
+    "totalSections": 30
+  }
+}
+```
+
+**Authorization:** 認証済みユーザー
+
+---
+
+### API-CLIENT-LIST-001: クライアント一覧取得
+
+**Purpose:** クライアント（支援先会社）の一覧を取得
+
+**Endpoint:**
+```
+GET /api/v1/clients
+```
+
+**Query Parameters:**
+- `search`: 検索キーワード（任意）
+
+**Response (Success):**
+```json
+{
+  "clients": [
+    {
+      "id": "uuid",
+      "name": "string",
+      "representativeName": "string",
+      "subsidyCount": 3,
+      "recentActivity": "datetime"
     }
   ]
 }
 ```
+
+**Authorization:** 認証済みユーザー
+
+---
+
+### API-CLIENT-GET-001: クライアント詳細取得
+
+**Purpose:** クライアントと紐づく補助金一覧を取得
+
+**Endpoint:**
+```
+GET /api/v1/clients/:id
+```
+
+**Response (Success):**
+```json
+{
+  "client": {
+    "id": "uuid",
+    "name": "string",
+    "representativeName": "string",
+    "address": "string",
+    "phone": "string",
+    "email": "string",
+    "notes": "string",
+    "subsidies": [
+      {
+        "id": "uuid",
+        "name": "string",
+        "deadline": "date",
+        "progress": 60
+      }
+    ]
+  }
+}
+```
+
+**Error Codes:**
+| Code | HTTP Status | Description |
+|------|-------------|-------------|
+| NOT_FOUND | 404 | クライアントが見つからない |
+
+**Authorization:** 認証済みユーザー
+
+---
+
+### API-CLIENT-CREATE-001: クライアント作成
+
+**Purpose:** 新規クライアントを作成
+
+**Endpoint:**
+```
+POST /api/v1/clients
+```
+
+**Request:**
+```json
+{
+  "name": "string",
+  "representativeName": "string",
+  "address": "string",
+  "phone": "string",
+  "email": "string",
+  "notes": "string"
+}
+```
+
+**Response (Success):**
+```json
+{
+  "client": {
+    "id": "uuid",
+    "name": "string"
+  }
+}
+```
+
+**Authorization:** 認証済みユーザー
+
+---
+
+### API-CLIENT-UPDATE-001: クライアント更新
+
+**Purpose:** クライアント情報を更新
+
+**Endpoint:**
+```
+PUT /api/v1/clients/:id
+```
+
+**Request:**
+```json
+{
+  "name": "string",
+  "representativeName": "string",
+  "address": "string",
+  "phone": "string",
+  "email": "string",
+  "notes": "string"
+}
+```
+
+**Response (Success):**
+```json
+{
+  "success": true
+}
+```
+
+**Error Codes:**
+| Code | HTTP Status | Description |
+|------|-------------|-------------|
+| NOT_FOUND | 404 | クライアントが見つからない |
+
+**Authorization:** 認証済みユーザー
+
+---
+
+### API-CLIENT-DELETE-001: クライアント削除
+
+**Purpose:** クライアントを削除
+
+**Endpoint:**
+```
+DELETE /api/v1/clients/:id
+```
+
+**Response (Success):**
+```json
+{
+  "success": true
+}
+```
+
+**Error Codes:**
+| Code | HTTP Status | Description |
+|------|-------------|-------------|
+| NOT_FOUND | 404 | クライアントが見つからない |
+| HAS_SUBSIDIES | 400 | 補助金が紐づいているため削除できない |
 
 **Authorization:** 認証済みユーザー
 
@@ -522,7 +736,7 @@ GET /api/v1/subsidies/:id
 
 **Endpoint:**
 ```
-POST /api/v1/subsidies
+POST /api/v1/clients/:clientId/subsidies
 ```
 
 **Request:**
@@ -733,11 +947,12 @@ POST /api/v1/sections/:id/restore/:historyId
 
 **Endpoint:**
 ```
-POST /api/v1/files
+POST /api/v1/clients/:clientId/files
 ```
 
 **Request:** multipart/form-data
 - file: ファイル
+- fileType: ファイル種別（existing_business または subsidy_business）
 - category: カテゴリ（任意）
 
 **Response (Success):**
@@ -767,8 +982,12 @@ POST /api/v1/files
 
 **Endpoint:**
 ```
-GET /api/v1/files
+GET /api/v1/clients/:clientId/files
 ```
+
+**Query Parameters:**
+- `fileType`: ファイル種別でフィルタ（existing_business または subsidy_business）（任意）
+- `category`: カテゴリでフィルタ（任意）
 
 **Response (Success):**
 ```json
@@ -778,6 +997,7 @@ GET /api/v1/files
       "id": "uuid",
       "filename": "string",
       "originalName": "string",
+      "fileType": "existing_business|subsidy_business",
       "category": "string",
       "size": 1234,
       "createdAt": "datetime"
@@ -1286,6 +1506,9 @@ DELETE /api/v1/users/:id
 | 2026-01-08 | テナント機能は必要か？ | Phase 1 は不要 | M-TENANT を削除 |
 | 2026-01-08 | 収益計画の計算ロジックは？ | 複利計算、パラメータ入力 | CR-001, CR-002, CR-003 を追加 |
 | 2026-01-08 | 履歴機能のスコープは？ | セクション内容の履歴のみ | M-SECTION-CONTENT-HISTORY を追加 |
+| 2026-01-08 | クライアント管理は Phase 1 に含めるか？ | Phase 1 に含める | M-CLIENT を追加、M-SUBSIDY に clientId 追加、クライアント関連 API 追加 |
+| 2026-01-08 | 参考ファイルの種別分けは？ | 既存事業と補助事業を区別 | M-REFERENCE-FILE に fileType フィールド追加 |
+| 2026-01-08 | セクション編集画面でのファイル紐づけは？ | 一元管理から選択と新規アップロードの両方 | SCR-006 のファイル追加モーダルを拡張 |
 
 ---
 
@@ -1295,6 +1518,7 @@ DELETE /api/v1/users/:id
 |------|-------------|-------------|-------|
 | 2026-01-08 | Created | Initial domain specification | - |
 | 2026-01-08 | Updated | Reviewer C: 欠落 API 追加 (DASHBOARD-001, FILE-DELETE-001, TEMPLATE-CREATE-001, USER-UPDATE-001, USER-DELETE-001, DOCUMENT-CREATE-001) | - |
+| 2026-01-08 | Updated | User Feedback: M-CLIENT 追加、クライアント関連 API 追加、M-REFERENCE-FILE に fileType 追加 | - |
 
 ---
 
